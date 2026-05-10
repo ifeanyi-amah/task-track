@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './component/Header'
 import TaskForm from './component/TaskForm'
-import TaskItem from './component/TaskItem'
+// import TaskItem from './component/TaskItem'
 import { Task } from './types/task'
 import TaskList from './component/TaskList'
 import FilterButtons from './component/FilterButtons'
@@ -11,6 +11,18 @@ function App() {
 
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    const saveTasks = localStorage.getItem("tasks");
+
+    if (saveTasks){
+      setTasks(JSON.parse(saveTasks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   // ADD TASK
   const handleAddTask = (task: Task) => {
@@ -52,14 +64,14 @@ function App() {
       <div>
         <Header />
         <TaskForm onAddTask={handleAddTask} />
-        {tasks.map((task) => (
+        {/* {tasks.map((task) => (
         <TaskItem
           key={task.id}
           task={task}
           onDelete={handleDelete}
           onToggle={handleToggle}
         />
-      ))}
+      ))} */}
       <TaskList 
         tasks={filteredTasks}
         onDelete={handleDelete}

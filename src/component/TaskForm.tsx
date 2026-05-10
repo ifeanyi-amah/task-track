@@ -43,7 +43,7 @@ const TaskForm = ({ onAddTask }: TaskFormProps) => {
                 onChange={(e) => setDescription(e.target.value)}
                 style={styles.textarea}
             />
-            <button type="submit" style={styles.button}>Add Task</button>
+            <button className="" type="submit" style={styles.button}>Add Task</button>
         </form>
     );
 };
@@ -53,7 +53,9 @@ const styles = {
     display: "flex",
     flexDirection: "column" as const,
     gap: "10px",
-    marginBottom: "20px",
+    // marginBottom: "20px",
+    margin: "0 auto 20px",
+    width: "700px"
   },
   input: {
     padding: "10px",
@@ -70,6 +72,7 @@ const styles = {
     color: "white",
     border: "none",
     cursor: "pointer",
+    borderRadius: "5px"
   },
 };
 

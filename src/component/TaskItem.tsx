@@ -22,10 +22,10 @@ const TaskItem = ({ task, onDelete, onToggle }: TaskItemProps) => {
             <p><strong>Status:</strong> {task.status}</p>
 
             <div style={styles.actions}>
-                <button onClick={() => onToggle(task.id)}>
+                <button style={styles.adjust} onClick={() => onToggle(task.id)}>
                     {task.status === "pending" ? "Complete" : "Undo"}
                 </button>
-                <button onClick={() => onDelete(task.id)}>Delete</button>
+                <button style={styles.adjust} onClick={() => onDelete(task.id)}>Delete</button>
             </div>
         </div>
     );
@@ -36,12 +36,18 @@ const styles = {
     border: "1px solid #ccc",
     padding: "15px",
     borderRadius: "8px",
-    marginBottom: "10px",
+    margin: "0 auto 10px",
+    width: "700px",
   },
   actions: {
     display: "flex",
     gap: "10px",
     marginTop: "10px",
+  },
+  adjust: {
+    padding: "10px",
+    borderRadius: "5px",
+    cursor: "pointer",
   },
 };
 
