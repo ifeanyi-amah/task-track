@@ -4,10 +4,13 @@ import Header from './component/Header'
 import TaskForm from './component/TaskForm'
 import TaskItem from './component/TaskItem'
 import { Task } from './types/task'
+import TaskList from './component/TaskList'
+import FilterButtons from './component/FilterButtons'
 
 function App() {
 
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [filter, setFilter] = useState("all");
 
   // ADD TASK
   const handleAddTask = (task: Task) => {
@@ -33,6 +36,17 @@ function App() {
     );
   };
 
+  // FILTER BUTTON
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "pending"){
+      return task.status === "pending";
+    }
+    if (filter === "completed"){
+      return task.status === "completed";
+    }
+    return true;
+  });
+
   return (
     <>
       <div>
@@ -46,6 +60,15 @@ function App() {
           onToggle={handleToggle}
         />
       ))}
+      <TaskList 
+        tasks={filteredTasks}
+        onDelete={handleDelete}
+        onToggle={handleToggle}
+      />
+      <FilterButtons 
+        currentFilter={filter}
+        onFilterChange={setFilter}
+      />
       </div>
     </>
   )
