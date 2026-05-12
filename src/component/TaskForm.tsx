@@ -53,9 +53,7 @@ const styles = {
     display: "flex",
     flexDirection: "column" as const,
     gap: "10px",
-    // marginBottom: "20px",
-    margin: "0 auto 20px",
-    width: "700px"
+    marginBottom: "20px",
   },
   input: {
     padding: "10px",

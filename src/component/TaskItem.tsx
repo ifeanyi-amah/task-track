@@ -36,8 +36,6 @@ const styles = {
     border: "1px solid #ccc",
     padding: "15px",
     borderRadius: "8px",
-    margin: "0 auto 10px",
-    width: "700px",
   },
   actions: {
     display: "flex",
