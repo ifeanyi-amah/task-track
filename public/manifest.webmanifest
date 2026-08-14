@@ -1,0 +1,21 @@
+{
+  "name": "Task Track",
+  "short_name": "Task",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
